@@ -259,7 +259,7 @@ body {
     gap: 10px;
 }
 
-#change-button {
+.change-button {
     font-size: 20px;
     line-height: 20px;
     padding: 5px;
@@ -269,11 +269,11 @@ body {
     transition: 0.5s all;
 }
 
-#change-button:active {
+.change-button:active {
     background-color: blue;
 }
 
-#del-button {
+.del-button {
     font-size: 20px;
     line-height: 20px;
     padding: 5px;
@@ -283,6 +283,27 @@ body {
     user-select: none;
 }
 
-#del-button:active {
+.del-button:active {
     background-color: red;
+}
+
+.del-all-button {
+    padding: 10px 15px;
+    border-radius: 10px;
+    background: linear-gradient(85deg, aqua, blue, rgb(111, 0, 255), rgb(78, 78, 184));
+    border: none;
+    text-decoration: none;
+    width: 200px;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 700 italic;
+    font-family: 'Amaranth';
+    color: white;
+    cursor: pointer;
+    transition: 0.5s ease;
+    display: inline-block;
+}
+
+.del-all-button:active {
+    transform: scaleX(0.9) scaleY(0.9);
 }
