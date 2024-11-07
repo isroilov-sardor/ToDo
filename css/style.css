@@ -287,7 +287,7 @@ body {
     background-color: red;
 }
 
-.del-all-button {
+#del-all-button {
     padding: 10px 15px;
     border-radius: 10px;
     background: linear-gradient(85deg, aqua, blue, rgb(111, 0, 255), rgb(78, 78, 184));
@@ -304,6 +304,12 @@ body {
     margin-bottom: 10px;
 }
 
-.del-all-button:active {
+#del-all-button:active {
     transform: scaleX(0.9) scaleY(0.9);
+}
+.column-same{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
 }

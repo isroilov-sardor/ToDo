@@ -65,12 +65,10 @@ function changeCard(id) {
     }
 }
 
-// Delete all cards function
 function deleteAllCards(event) {
-    console.log("Hamma kartalar o'chirildi");
-    event.stopPropagation(); // Prevent the event from bubbling up to the parent element
-    localStorage.removeItem("todos"); // Remove all data from LocalStorage
-    card.innerHTML = ""; // Remove all cards from the DOM
+  event.stopPropagation();
+    localStorage.removeItem("todos");
+    card.innerHTML = "";
 }
 
 button &&
@@ -99,11 +97,10 @@ document.addEventListener("DOMContentLoaded", function () {
         card.innerHTML += ssikl;
     });
 
-    const delAllButton = document.querySelector(".del-all-button");
+    const delAllButton = document.querySelector("#del-all-button");
     if (delAllButton) {
-        // Ensure the deleteAllCards function is working properly
         delAllButton.addEventListener("click", function (event) {
-            deleteAllCards(event); // Prevents it from being removed accidentally
+            deleteAllCards(event);
         });
     }
 });
@@ -114,11 +111,11 @@ card.addEventListener("click", function (event) {
         const cardId = Number(cardElement.getAttribute("data-id"));
 
         if (event.target.classList.contains("del-button")) {
-            deleteCard(cardId); // Delete individual card
+            deleteCard(cardId);
         }
 
         if (event.target.classList.contains("change-button")) {
-            changeCard(cardId); // Change card content
+            changeCard(cardId);
         }
     }
 });
