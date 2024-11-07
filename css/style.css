@@ -301,7 +301,6 @@ body {
     color: white;
     cursor: pointer;
     transition: 0.5s ease;
-    display: inline-block;
     margin-bottom: 10px;
 }
 

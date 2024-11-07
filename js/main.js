@@ -65,11 +65,12 @@ function changeCard(id) {
     }
 }
 
+// Delete all cards function
 function deleteAllCards(event) {
     console.log("Hamma kartalar o'chirildi");
-    event.stopPropagation();  // Bu tugma o'zini o'chirishini to'xtatadi
-    localStorage.removeItem("todos");
-    card.innerHTML = "";
+    event.stopPropagation(); // Prevent the event from bubbling up to the parent element
+    localStorage.removeItem("todos"); // Remove all data from LocalStorage
+    card.innerHTML = ""; // Remove all cards from the DOM
 }
 
 button &&
@@ -100,19 +101,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const delAllButton = document.querySelector(".del-all-button");
     if (delAllButton) {
-        delAllButton.addEventListener("click", deleteAllCards);
+        // Ensure the deleteAllCards function is working properly
+        delAllButton.addEventListener("click", function (event) {
+            deleteAllCards(event); // Prevents it from being removed accidentally
+        });
     }
 });
 
 card.addEventListener("click", function (event) {
     const cardElement = event.target.closest(".forms");
-    const cardId = Number(cardElement.getAttribute("data-id"));
+    if (cardElement) {
+        const cardId = Number(cardElement.getAttribute("data-id"));
 
-    if (event.target.classList.contains("del-button")) {
-        deleteCard(cardId);
-    }
+        if (event.target.classList.contains("del-button")) {
+            deleteCard(cardId); // Delete individual card
+        }
 
-    if (event.target.classList.contains("change-button")) {
-        changeCard(cardId);
+        if (event.target.classList.contains("change-button")) {
+            changeCard(cardId); // Change card content
+        }
     }
 });
