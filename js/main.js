@@ -1,7 +1,6 @@
 const button = document.querySelector("#btn");
 const card = document.querySelector("#card-right");
 const type = document.querySelector("#card-input");
-const delAllButton = document.querySelector(".del-all-button");
 
 function createCard(value) {
     return `
@@ -66,6 +65,13 @@ function changeCard(id) {
     }
 }
 
+function deleteAllCards(event) {
+    console.log("Hamma kartalar o'chirildi");
+    event.stopPropagation();  // Bu tugma o'zini o'chirishini to'xtatadi
+    localStorage.removeItem("todos");
+    card.innerHTML = "";
+}
+
 button &&
     button.addEventListener("click", function (event) {
         event.preventDefault();
@@ -91,6 +97,11 @@ document.addEventListener("DOMContentLoaded", function () {
         let ssikl = createCard(element);
         card.innerHTML += ssikl;
     });
+
+    const delAllButton = document.querySelector(".del-all-button");
+    if (delAllButton) {
+        delAllButton.addEventListener("click", deleteAllCards);
+    }
 });
 
 card.addEventListener("click", function (event) {
@@ -105,8 +116,3 @@ card.addEventListener("click", function (event) {
         changeCard(cardId);
     }
 });
-
-delAllButton &&
-    delAllButton.addEventListener("click", function () {
-        deleteAllCards();
-    });
